@@ -57,6 +57,9 @@ struct ContentView: View {
                                 Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                                     .giveStyleBasedOnAmount(amount: item.amount)
                             }
+                            .accessibilityElement()
+                            .accessibilityLabel("\(item.name) had a cost of \(item.amount) dollars.")
+                            .accessibilityHint("\(item.type) expense.")
                         }
                     }
                     .onDelete { indexSet in
